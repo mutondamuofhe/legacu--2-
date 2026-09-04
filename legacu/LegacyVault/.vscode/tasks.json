@@ -1,0 +1,199 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Build Legacy Vault",
+			"type": "shell",
+			"command": "dotnet",
+			"args": [
+				"build",
+				"--no-restore"
+			],
+			"isBackground": false,
+			"problemMatcher": [
+				"$msCompile"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Run Legacy Vault Preview",
+			"type": "shell",
+			"command": "dotnet",
+			"args": [
+				"run",
+				"--no-build",
+				"--no-restore",
+				"--urls",
+				"http://localhost:5187"
+			],
+			"isBackground": true,
+			"problemMatcher": []
+		},
+		{
+			"label": "Build Legacy Vault After Migration Fix",
+			"type": "shell",
+			"command": "dotnet",
+			"args": [
+				"build",
+				"--no-restore"
+			],
+			"isBackground": false,
+			"problemMatcher": [
+				"$msCompile"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Rebuild Legacy Vault Migration Fix",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-Command",
+				"Get-Process LegacyVault -ErrorAction SilentlyContinue | Stop-Process -Force; dotnet build --no-restore"
+			],
+			"isBackground": false,
+			"problemMatcher": [
+				"$msCompile"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Run Legacy Vault Migration Check",
+			"type": "shell",
+			"command": "dotnet",
+			"args": [
+				"run",
+				"--no-build",
+				"--no-restore",
+				"--urls",
+				"http://localhost:5187"
+			],
+			"isBackground": true,
+			"problemMatcher": []
+		},
+		{
+			"label": "Start Legacy Vault Server Clean",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-Command",
+				"Start-Process dotnet -ArgumentList 'run --no-build --no-restore --urls http://localhost:5187' -WorkingDirectory 'c:\\Users\\rifas\\OneDrive\\Documentos\\LegacyVault'"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Start Legacy Vault Server",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-Command",
+				"Start-Process dotnet -ArgumentList @('run','--no-build','--no-restore','--urls','http://localhost:5187') -WorkingDirectory 'c:\\Users\\rifas\\OneDrive\\Documentos\\LegacyVault'"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Start Legacy Vault Server Direct",
+			"type": "shell",
+			"command": "cmd",
+			"args": [
+				"/c",
+				"start",
+				"\"LegacyVaultPreview\"",
+				"dotnet",
+				"bin\\Debug\\net10.0\\LegacyVault.dll",
+				"--urls",
+				"http://localhost:5187"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Check Legacy Vault Process",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-Command",
+				"Get-Process LegacyVault -ErrorAction SilentlyContinue | Select-Object Id,Path"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Install EF Core CLI",
+			"type": "shell",
+			"command": "dotnet",
+			"args": [
+				"tool",
+				"install",
+				"--global",
+				"dotnet-ef",
+				"--version",
+				"10.0.2",
+				"--configfile",
+				"NuGet.Config"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Apply Legacy Vault EF Migration",
+			"type": "shell",
+			"command": "dotnet",
+			"args": [
+				"ef",
+				"database",
+				"update",
+				"--no-build"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Build Fresh EF Model",
+			"type": "shell",
+			"command": "dotnet",
+			"args": [
+				"build",
+				"--no-restore"
+			],
+			"isBackground": false,
+			"problemMatcher": [
+				"$msCompile"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Apply Fresh EF Model",
+			"type": "shell",
+			"command": "dotnet",
+			"args": [
+				"ef",
+				"database",
+				"update",
+				"--no-build"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Run Legacy Vault After Migration",
+			"type": "shell",
+			"command": "dotnet",
+			"args": [
+				"run",
+				"--no-build",
+				"--no-restore",
+				"--urls",
+				"http://localhost:5187"
+			],
+			"isBackground": true,
+			"problemMatcher": []
+		}
+	]
+}

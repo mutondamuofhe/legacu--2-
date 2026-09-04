@@ -1,0 +1,2 @@
+@model IEnumerable<LegacyVault.Models.ActivityLog>
+@{ViewData["Title"]="Activity";}<div class="page-heading"><div><span class="eyebrow">TIMELINE</span><h1>Activity</h1><p>A record of changes made in your vault.</p></div></div><section class="panel">@foreach(var item in Model){<div class="activity-row"><span class="activity-dot"></span><div><b>@item.Description</b><small>@item.CreatedAt.ToLocalTime().ToString("MMM d, yyyy · h:mm tt")</small></div></div>}</section>

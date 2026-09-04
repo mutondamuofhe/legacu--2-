@@ -1,0 +1,139 @@
+﻿@{
+    Layout = null;
+    ViewData["Title"] = "Legacy Vault";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body class="landing-page">
+    <header class="landing-header">
+        <div class="landing-shell nav-wrap">
+            <a class="brand-mark-link" href="@Url.Action("Index", "Home")" aria-label="Legacy Vault home">
+                <img src="~/images/legacy-shield.svg" alt="Legacy Vault logo" class="brand-badge" />
+                <span class="brand-wordmark">Legacy Vault</span>
+            </a>
+
+            <nav class="top-nav" aria-label="Main navigation">
+                <a href="#home">Home</a>
+                <a href="#about">About Us</a>
+                <a href="#contact">Contact</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a class="nav-login" href="/Identity/Account/Login">Login</a>
+                <a class="nav-register" href="/Identity/Account/Register">Register</a>
+            </div>
+        </div>
+    </header>
+
+    <main id="home">
+        <section class="hero-section">
+            <div class="landing-shell hero-grid">
+                <div class="hero-copy">
+                    <h1>
+                        Secure What<br />
+                        Matters.<br />
+                        <span>Protect Their<br />Tomorrow.</span>
+                    </h1>
+
+                    <p>
+                        Legacy Vault helps you securely store and manage your important documents,
+                        digital assets, and final wishes — so your loved ones are protected when they need it most.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a class="btn btn-primary" href="/Identity/Account/Register">Get Started</a>
+                        <a class="btn btn-secondary" href="#about">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="hero-visual" aria-label="Legacy Vault safe illustration">
+                    <img src="~/images/legacy-safe.svg" alt="Legacy Vault secure safe illustration" />
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="landing-shell about-wrap">
+                <div class="about-header">
+                    <span class="section-kicker">WHAT IS LEGACY VAULT?</span>
+                    <h2>Your Digital Legacy, Safely Organized</h2>
+                    <p>
+                        Legacy Vault gives you one secure place to organise important digital assets,
+                        documents, trusted beneficiaries and instructions for the future. You decide what
+                        information is stored and who can access it when it matters most.
+                    </p>
+                </div>
+
+                <div class="problem-solution-grid">
+                    <article class="info-panel problem-panel">
+                        <h3>The Problem</h3>
+                        <p>
+                            When an individual passes away, their family may be left managing a complex digital environment they cannot easily access.
+                        </p>
+                        <ul>
+                            <li>Unknown passwords for banking, email and social media accounts</li>
+                            <li>Important documents such as wills and insurance policies may be inaccessible</li>
+                            <li>Recurring subscriptions may continue charging the estate</li>
+                            <li>Social media accounts may remain active without clear instructions</li>
+                            <li>Important information may be stored in unknown locations</li>
+                        </ul>
+                        <p class="panel-note">
+                            Without a centralised solution, families can experience unnecessary stress and difficulty managing these digital assets.
+                        </p>
+                    </article>
+
+                    <article class="info-panel solution-panel">
+                        <h3>The Solution</h3>
+                        <p>
+                            Legacy Vault provides a secure digital estate management platform that puts important information in one place.
+                        </p>
+                        <p>With Legacy Vault, users can:</p>
+                        <ul>
+                            <li>Store digital account information</li>
+                            <li>Upload essential documents</li>
+                            <li>Assign a trusted Digital Executor</li>
+                            <li>Create instructions for their digital assets</li>
+                            <li>Control who can access their information</li>
+                        </ul>
+                        <p class="panel-note">
+                            This helps ensure that digital assets are managed according to the user's wishes while reducing the burden on family members.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact" class="landing-footer">
+        <div class="landing-shell footer-top">
+            <div class="footer-block">
+                <span class="footer-label">GENERAL INQUIRIES</span>
+                <a href="mailto:info@legacy-vault.africa">info@legacy-vault.africa</a>
+            </div>
+            <div class="footer-block">
+                <span class="footer-label">LEGAL &amp; DATA PRIVACY</span>
+                <a href="mailto:joy@legacy-vault.africa">joy@legacy-vault.africa</a>
+            </div>
+            <div class="footer-block">
+                <span class="footer-label">WHATSAPP</span>
+                <a href="https://wa.me/2646519105">+264 6519105</a>
+            </div>
+        </div>
+
+        <div class="landing-shell footer-bottom">
+            <p>© 2026 Legacy-Vault Group Limited. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="mailto:info@legacy-vault.africa">Confidential Inquiries</a>
+                <a href="mailto:joy@legacy-vault.africa">Compliance Support</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

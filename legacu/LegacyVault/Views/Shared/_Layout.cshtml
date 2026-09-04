@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Legacy Vault</title>
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/LegacyVault.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="app-shell">
+        <aside class="sidebar" id="primary-sidebar">
+            <div class="sidebar-brand-row"><a class="brand" asp-controller="Dashboard" asp-action="Index"><span class="brand-mark">✦</span><span>Legacy Vault<small>SYSTEM</small></span></a><button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-controls="primary-sidebar" aria-expanded="true">☰</button></div>
+            <nav class="sidebar-nav" aria-label="Primary navigation">
+                <span class="nav-heading">MAIN MENU</span>
+                <a class="@(ViewContext.RouteData.Values["controller"]?.ToString() == "Dashboard" ? "active" : "")" asp-controller="Dashboard" asp-action="Index"><span class="nav-icon">⌂</span><span>Dashboard</span></a>
+                <a class="@(ViewContext.RouteData.Values["controller"]?.ToString() == "Assets" ? "active" : "")" asp-controller="Assets" asp-action="Index"><span class="nav-icon">◈</span><span>Digital Assets</span></a>
+                <a class="@(ViewContext.RouteData.Values["controller"]?.ToString() == "Documents" ? "active" : "")" asp-controller="Documents" asp-action="Index"><span class="nav-icon">▤</span><span>Document Vault</span></a>
+                <a class="@(ViewContext.RouteData.Values["controller"]?.ToString() == "Executors" ? "active" : "")" asp-controller="Executors" asp-action="Index"><span class="nav-icon">♙</span><span>Executors</span></a>
+                <a class="@(ViewContext.RouteData.Values["controller"]?.ToString() == "Instructions" ? "active" : "")" asp-controller="Instructions" asp-action="Index"><span class="nav-icon">≡</span><span>Instructions</span></a>
+                <span class="nav-heading account-heading">ACCOUNT</span>
+                <a asp-area="Identity" asp-page="/Account/Manage/Index"><span class="nav-icon">◯</span><span>Profile</span></a>
+            </nav>
+            <div class="sidebar-foot"><partial name="_LoginPartial" /></div>
+        </aside>
+        <main class="main-content">
+            <header class="topbar"><button class="mobile-menu-toggle" type="button" aria-label="Open navigation" aria-controls="primary-sidebar" aria-expanded="false">☰</button><span class="mobile-brand">Legacy Vault</span><span class="secure-label">● SECURE WORKSPACE</span></header>
+        <div class="content-wrap">
+            @RenderBody()
+        </div></main></div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

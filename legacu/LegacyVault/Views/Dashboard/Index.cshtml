@@ -1,0 +1,16 @@
+@model LegacyVault.Models.DashboardViewModel
+@{ ViewData["Title"] = "Dashboard"; }
+<div class="page-heading">
+    <div><span class="eyebrow">YOUR LEGACY, SECURED</span><h1>Welcome Back, @Model.UserName!</h1><p>Manage and secure your digital legacy</p></div>
+    <a class="button button-primary" asp-controller="Assets" asp-action="Create"><span>+</span> Add Digital Asset</a>
+</div>
+<div class="stat-grid">
+    <a class="stat-card" asp-controller="Assets" asp-action="Index"><span class="stat-icon teal">◈</span><span class="stat-label">Digital assets</span><strong>@Model.AssetCount</strong><small>Accounts and services</small></a>
+    <a class="stat-card" asp-controller="Documents" asp-action="Index"><span class="stat-icon gold">▤</span><span class="stat-label">Documents</span><strong>@Model.DocumentCount</strong><small>Protected files</small></a>
+    <a class="stat-card" asp-controller="Executors" asp-action="Index"><span class="stat-icon coral">♙</span><span class="stat-label">Executors</span><strong>@Model.ExecutorCount</strong><small>Trusted contacts</small></a>
+    <a class="stat-card" asp-controller="Instructions" asp-action="Index"><span class="stat-icon blue">≡</span><span class="stat-label">Instructions</span><strong>@Model.InstructionCount</strong><small>Guidance for later</small></a>
+</div>
+<div class="dashboard-grid">
+    <section class="panel health-panel"><div class="panel-title"><div><span class="eyebrow">VAULT HEALTH</span><h2>Your vault is @Model.HealthPercent% ready</h2></div><span class="health-score">@Model.HealthPercent%</span></div><div class="progress-track"><div style="width:@Model.HealthPercent%"></div></div><p class="muted">Complete each part of your vault to make your wishes clear and actionable.</p><div class="check-list"><span class="@(Model.AssetCount > 0 ? "done" : "")">✓ <b>Digital assets</b></span><span class="@(Model.DocumentCount > 0 ? "done" : "")">✓ <b>Document vault</b></span><span class="@(Model.ExecutorCount > 0 ? "done" : "")">✓ <b>Digital executor</b></span><span class="@(Model.InstructionCount > 0 ? "done" : "")">✓ <b>Instructions</b></span></div></section>
+    <section class="panel activity-panel"><div class="panel-title"><div><span class="eyebrow">TIMELINE</span><h2>Recent activity</h2></div><a asp-controller="Activity" asp-action="Index">View all</a></div>@if (Model.RecentActivity.Count == 0) { <div class="empty-state"><span>✦</span><p>Your vault activity will appear here.</p></div> } else { foreach (var item in Model.RecentActivity) { <div class="activity-row"><span class="activity-dot"></span><div><b>@item.Description</b><small>@item.CreatedAt.ToLocalTime().ToString("MMM d, yyyy")</small></div></div> } }</section>
+</div>
