@@ -26,8 +26,8 @@
             </nav>
 
             <div class="nav-actions">
-                <a class="nav-login" href="/Identity/Account/Login">Login</a>
-                <a class="nav-register" href="/Identity/Account/Register">Register</a>
+                <a class="nav-login" href="/Identity/Account/Login?returnUrl=%2FDashboard">Login</a>
+                <a class="nav-register" href="/Identity/Account/Register?returnUrl=%2FDashboard">Register</a>
             </div>
         </div>
     </header>
@@ -48,7 +48,7 @@
                     </p>
 
                     <div class="hero-actions">
-                        <a class="btn btn-primary" href="/Identity/Account/Register">Get Started</a>
+                        <a class="btn btn-primary" href="/Identity/Account/Register?returnUrl=%2FDashboard">Get Started</a>
                         <a class="btn btn-secondary" href="@Url.Action("About", "Home")">Learn More</a>
                     </div>
                 </div>
