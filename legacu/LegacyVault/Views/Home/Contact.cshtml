@@ -1,0 +1,107 @@
+@model LegacyVault.Models.ContactMessageViewModel
+@{
+    Layout = null;
+    ViewData["Title"] = "Contact Us";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Legacy Vault</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body class="public-page contact-page">
+    <header class="landing-header">
+        <div class="landing-shell nav-wrap">
+            <a class="brand-mark-link" href="@Url.Action("Index", "Home")" aria-label="Legacy Vault home">
+                <img src="~/images/legacy-shield.svg" alt="Legacy Vault logo" class="brand-badge" />
+                <span class="brand-wordmark">Legacy Vault</span>
+            </a>
+
+            <nav class="top-nav" aria-label="Main navigation">
+                <a href="@Url.Action("Index", "Home")">Home</a>
+                <a href="@Url.Action("About", "Home")">About Us</a>
+                <a href="@Url.Action("Contact", "Home")" class="active">Contact</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a class="nav-login" href="/Identity/Account/Login">Login</a>
+                <a class="nav-register" href="/Identity/Account/Register">Register</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="public-main contact-main">
+        <div class="landing-shell contact-layout">
+            <section class="contact-panel contact-copy-panel">
+                <div class="contact-brand-block">
+                    <span class="brand-mark-link brand-mark-link-small">
+                        <img src="~/images/legacy-shield.svg" alt="Legacy Vault logo" class="brand-badge brand-badge-small" />
+                        <span class="brand-wordmark">LEGACY VAULT</span>
+                    </span>
+                    <div class="secure-tagline">SECURE • PRIVATE • TRUSTED</div>
+                </div>
+
+                <h1>Welcome Back</h1>
+                <p>Sign in to access your secure vault and manage what matters most.</p>
+
+                <div class="contact-meta">
+                    <div><strong>Email Address</strong></div>
+                    <div class="meta-row"><span>✉</span> <a href="mailto:info@legacy-vault.africa">info@legacy-vault.africa</a></div>
+                    <div><strong>WhatsApp</strong></div>
+                    <div class="meta-row"><span>✆</span> <a href="https://wa.me/2646519105">+264 6519105</a></div>
+                </div>
+            </section>
+
+            <section class="contact-panel contact-form-panel">
+                <div class="contact-topline">
+                    <a href="@Url.Action("Index", "Home")" class="back-link">← Back to Home</a>
+                </div>
+
+                <h2>Contact Us</h2>
+
+                @if (TempData["ContactSuccess"] is string success)
+                {
+                    <div class="success-box">@success</div>
+                }
+
+                <form asp-action="Contact" method="post" class="contact-form">
+                    <div asp-validation-summary="ModelOnly" class="validation-summary"></div>
+
+                    <div class="field-group">
+                        <label asp-for="Name">Full Name</label>
+                        <input asp-for="Name" placeholder="Enter your full name" />
+                        <span asp-validation-for="Name" class="field-validation-error"></span>
+                    </div>
+
+                    <div class="field-group">
+                        <label asp-for="Email">Email Address</label>
+                        <input asp-for="Email" placeholder="Enter your email" />
+                        <span asp-validation-for="Email" class="field-validation-error"></span>
+                    </div>
+
+                    <div class="field-group">
+                        <label asp-for="Subject">Subject</label>
+                        <input asp-for="Subject" placeholder="Enter subject" />
+                        <span asp-validation-for="Subject" class="field-validation-error"></span>
+                    </div>
+
+                    <div class="field-group">
+                        <label asp-for="Message">Message</label>
+                        <textarea asp-for="Message" rows="6" placeholder="Write your message here..."></textarea>
+                        <span asp-validation-for="Message" class="field-validation-error"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary contact-submit">Send Message</button>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+</body>
+</html>

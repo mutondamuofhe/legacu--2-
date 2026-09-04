@@ -564,6 +564,7 @@ C:\Users\CMuto\Downloads\legacu (2)\legacu\LegacyVault\obj\Debug\net10.0\refint\
 C:\Users\CMuto\Downloads\legacu (2)\legacu\LegacyVault\obj\Debug\net10.0\LegacyVault.pdb
 C:\Users\CMuto\Downloads\legacu (2)\legacu\LegacyVault\obj\Debug\net10.0\LegacyVault.genruntimeconfig.cache
 C:\Users\CMuto\Downloads\legacu (2)\legacu\LegacyVault\obj\Debug\net10.0\ref\LegacyVault.dll
-C:\Users\CMuto\Downloads\legacu (2)\legacu\LegacyVault\obj\Debug\net10.0\compressed\flr6dcydab-{0}-dvh8ukzz6y-dvh8ukzz6y.gz
 C:\Users\CMuto\Downloads\legacu (2)\legacu\LegacyVault\obj\Debug\net10.0\compressed\vvlz4pvg4t-{0}-3h1ivqa8xj-3h1ivqa8xj.gz
 C:\Users\CMuto\Downloads\legacu (2)\legacu\LegacyVault\obj\Debug\net10.0\compressed\zyp7d89c44-{0}-h0s82tmets-h0s82tmets.gz
+C:\Users\CMuto\Downloads\legacu (2)\legacu\LegacyVault\obj\Debug\net10.0\LegacyVault.sourcelink.json
+C:\Users\CMuto\Downloads\legacu (2)\legacu\LegacyVault\obj\Debug\net10.0\compressed\flr6dcydab-{0}-zosdb9i9j2-zosdb9i9j2.gz

@@ -1,0 +1,143 @@
+@{
+    Layout = null;
+    ViewData["Title"] = "About Us";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Legacy Vault</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body class="public-page about-page">
+    <header class="landing-header">
+        <div class="landing-shell nav-wrap">
+            <a class="brand-mark-link" href="@Url.Action("Index", "Home")" aria-label="Legacy Vault home">
+                <img src="~/images/legacy-shield.svg" alt="Legacy Vault logo" class="brand-badge" />
+                <span class="brand-wordmark">Legacy Vault</span>
+            </a>
+
+            <nav class="top-nav" aria-label="Main navigation">
+                <a href="@Url.Action("Index", "Home")">Home</a>
+                <a href="@Url.Action("About", "Home")" class="active">About Us</a>
+                <a href="@Url.Action("Contact", "Home")">Contact</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a class="nav-login" href="/Identity/Account/Login">Login</a>
+                <a class="nav-register" href="/Identity/Account/Register">Register</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="public-main">
+        <section class="about-split">
+            <div class="landing-shell about-split-inner">
+                <div class="about-hero-copy">
+                    <span class="section-kicker">WHAT IS LEGACY VAULT?</span>
+                    <h1>Your Digital Legacy, Safely Organized</h1>
+                    <p>
+                        Legacy Vault gives you one secure place to organise important digital assets,
+                        documents, trusted beneficiaries and instructions for the future. You decide what
+                        information is stored and who can access it when it matters most.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-grid-section">
+            <div class="landing-shell info-grid-shell">
+                <div class="info-card">
+                    <h2>The Problem</h2>
+                    <p>When an individual passes away, their family may be left managing a complex digital environment they cannot easily access.</p>
+                    <ul>
+                        <li>Unknown passwords for banking, email and social media accounts</li>
+                        <li>Important documents such as wills and insurance policies may be inaccessible</li>
+                        <li>Recurring subscriptions may continue charging the estate</li>
+                        <li>Social media accounts may remain active without clear instructions</li>
+                        <li>Important information may be stored in unknown locations</li>
+                    </ul>
+                    <p>Without a centralised solution, families can experience unnecessary stress and difficulty managing these digital assets.</p>
+                </div>
+
+                <div class="info-card accent-card">
+                    <h2>The Solution</h2>
+                    <p>Legacy Vault provides a secure digital estate management platform that puts important information in one place.</p>
+                    <p>With Legacy Vault, users can:</p>
+                    <ul>
+                        <li>Store digital account information</li>
+                        <li>Upload essential documents</li>
+                        <li>Assign a trusted Digital Executor</li>
+                        <li>Create instructions for their digital assets</li>
+                        <li>Control who can access their information</li>
+                    </ul>
+                    <p>This helps ensure that digital assets are managed according to the user's wishes while reducing the burden on family members.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="how-it-works">
+            <div class="landing-shell">
+                <span class="section-kicker centered">HOW IT WORKS</span>
+                <h2>Four Steps. No Single Point of Failure.</h2>
+                <p class="how-copy">Your estate is locked and watched. It opens only after every condition you set has been verified. No shortcuts. No overrides.</p>
+
+                <div class="steps-grid">
+                    <div class="step">
+                        <div class="step-badge">01</div>
+                        <h3>You Encrypt Your Instructions</h3>
+                        <p>Your will, asset list, and distribution directives are encrypted on your device before they ever leave it. We never see the contents.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-badge">02</div>
+                        <h3>Guardians Hold the Keys</h3>
+                        <p>Your chosen guardians each receive a cryptographic key share. No single guardian, not even us, can open the vault alone.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-badge">03</div>
+                        <h3>The System Watches</h3>
+                        <p>Continuous integrity checks confirm your vault remains untouched and your notification chains are active. Any anomaly triggers an alert.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-badge">04</div>
+                        <h3>Consent Unlocks Everything</h3>
+                        <p>When the conditions you set are met, being verified absence, guardian consent, and family dialogue, the vault opens exactly as you intended.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="benefit-band">
+            <div class="landing-shell">
+                <h2>Built Around Security, Trust and Peace of Mind</h2>
+                <p>Keep sensitive legacy information organised and protected while deciding who can access it and when.</p>
+
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🔒</div>
+                        <h3>Secure</h3>
+                        <p>Keep sensitive legacy information organised and protected.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">👤</div>
+                        <h3>Trusted Access</h3>
+                        <p>Decide who can access your information.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">📁</div>
+                        <h3>Everything in One Place</h3>
+                        <p>Manage documents and digital assets from one central vault.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">❤</div>
+                        <h3>Peace of Mind</h3>
+                        <p>Give your loved ones clearer guidance for the future.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
