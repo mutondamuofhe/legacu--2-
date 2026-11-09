@@ -4,8 +4,8 @@ services:
     runtime: docker
     region: oregon
     plan: 0.5c-512mb
-    dockerfilePath: ./LegacyVault/Dockerfile
-    dockerContext: ./LegacyVault
+    dockerfilePath: ./legacu/LegacyVault/Dockerfile
+    dockerContext: ./legacu/LegacyVault
     healthCheckPath: /
     envVars:
       - key: ASPNETCORE_ENVIRONMENT
