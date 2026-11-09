@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: legacy-vault
+    runtime: docker
+    region: oregon
+    plan: 0.5c-512mb
+    dockerfilePath: ./LegacyVault/Dockerfile
+    dockerContext: ./LegacyVault
+    healthCheckPath: /
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      - key: ASPNETCORE_HTTP_PORTS
+        value: "10000"
+      - key: ConnectionStrings__DefaultConnection
+        value: "Data Source=/app/App_Data/legacyvault.db;Cache=Shared"
+      - key: DataProtection__KeysPath
+        value: /app/App_Data/keys
+      - key: Admin__Email
+        sync: false
+      - key: Admin__Password
+        sync: false
+    disk:
+      name: legacy-vault-data
+      mountPath: /app/App_Data
+      sizeGB: 1

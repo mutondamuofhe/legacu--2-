@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using LegacyVault.Data;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.DataProtection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,12 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlite(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
+var dataProtectionPath = builder.Configuration["DataProtection:KeysPath"]
+    ?? Path.Combine(builder.Environment.ContentRootPath, "App_Data", "keys");
+Directory.CreateDirectory(dataProtectionPath);
+builder.Services.AddDataProtection()
+    .PersistKeysToFileSystem(new DirectoryInfo(dataProtectionPath));
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddRoles<IdentityRole>()
@@ -24,8 +31,19 @@ using (var scope = app.Services.CreateScope())
     var roles = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
     if (!await roles.RoleExistsAsync("Admin")) await roles.CreateAsync(new IdentityRole("Admin"));
     var users = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
-    var adminEmail = builder.Configuration["Admin:Email"] ?? "admin@legacyvault.local";
-    var adminPassword = builder.Configuration["Admin:Password"] ?? "ChangeMe123!";
+    var adminEmail = builder.Configuration["Admin:Email"];
+    var adminPassword = builder.Configuration["Admin:Password"];
+    if (app.Environment.IsDevelopment())
+    {
+        adminEmail ??= "admin@legacyvault.local";
+        adminPassword ??= "ChangeMe123!";
+    }
+
+    if (string.IsNullOrWhiteSpace(adminEmail) || string.IsNullOrWhiteSpace(adminPassword))
+    {
+        throw new InvalidOperationException("Configure Admin:Email and Admin:Password before starting outside Development.");
+    }
+
     var admin = await users.FindByEmailAsync(adminEmail);
     if (admin is null)
     {
