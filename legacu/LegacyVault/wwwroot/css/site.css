@@ -1371,6 +1371,17 @@ body { background:var(--surface); color:#17243a; margin-bottom:0; }
   border: 0;
 }
 
+.demo-mode-notice {
+  position: relative;
+  z-index: 1;
+  padding: 9px 18px;
+  border-bottom: 1px solid #d6a22c;
+  background: #fff3cc;
+  color: #46340b;
+  font: 600 12px/1.45 Arial, sans-serif;
+  text-align: center;
+}
+
 .asset-filters {
   display: flex;
   gap: 8px;

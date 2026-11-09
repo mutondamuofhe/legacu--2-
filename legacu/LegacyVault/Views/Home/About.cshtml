@@ -1,3 +1,4 @@
+@inject IConfiguration Configuration
 @{
     Layout = null;
     ViewData["Title"] = "About Us";
@@ -30,6 +31,11 @@
             </div>
         </div>
     </header>
+
+    @if (Configuration.GetValue<bool>("VaultStorage:EphemeralDemo"))
+    {
+        <aside class="demo-mode-notice" role="note">FREE DEMO: Data may be erased after a restart or redeploy. Do not enter real passwords or upload private documents.</aside>
+    }
 
     <main class="public-main">
         <section class="about-split">

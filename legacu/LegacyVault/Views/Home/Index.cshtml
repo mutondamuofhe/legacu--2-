@@ -1,4 +1,5 @@
-﻿@{
+﻿@inject IConfiguration Configuration
+@{
     Layout = null;
     ViewData["Title"] = "Legacy Vault";
 }
@@ -30,6 +31,11 @@
             </div>
         </div>
     </header>
+
+    @if (Configuration.GetValue<bool>("VaultStorage:EphemeralDemo"))
+    {
+        <aside class="demo-mode-notice" role="note">FREE DEMO: Data may be erased after a restart or redeploy. Do not enter real passwords or upload private documents.</aside>
+    }
 
     <main id="home">
         <section class="hero-section">
