@@ -10,9 +10,9 @@
     <link rel="stylesheet" href="~/LegacyVault.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <div class="app-shell">
+    <div class="app-shell @(ViewContext.RouteData.Values["controller"]?.ToString() == "Dashboard" ? "dashboard-shell" : "")">
         <aside class="sidebar" id="primary-sidebar">
-            <div class="sidebar-brand-row"><a class="brand" asp-controller="Dashboard" asp-action="Index"><span class="brand-mark">✦</span><span>Legacy Vault<small>SYSTEM</small></span></a><button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-controls="primary-sidebar" aria-expanded="true">☰</button></div>
+            <div class="sidebar-brand-row"><a class="brand" asp-controller="Dashboard" asp-action="Index" aria-label="Legacy Vault dashboard"><img src="~/images/legacy-vault-logo.png.png" alt="Legacy Vault System" class="dashboard-brand-logo" /></a><button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-controls="primary-sidebar" aria-expanded="true">☰</button></div>
             <nav class="sidebar-nav" aria-label="Primary navigation">
                 <span class="nav-heading">MAIN MENU</span>
                 <a class="@(ViewContext.RouteData.Values["controller"]?.ToString() == "Dashboard" ? "active" : "")" asp-controller="Dashboard" asp-action="Index"><span class="nav-icon">⌂</span><span>Dashboard</span></a>
@@ -22,10 +22,11 @@
                 <a class="@(ViewContext.RouteData.Values["controller"]?.ToString() == "Instructions" ? "active" : "")" asp-controller="Instructions" asp-action="Index"><span class="nav-icon">≡</span><span>Instructions</span></a>
                 <span class="nav-heading account-heading">ACCOUNT</span>
                 <a asp-area="Identity" asp-page="/Account/Manage/Index"><span class="nav-icon">◯</span><span>Profile</span></a>
+                @await Html.PartialAsync("_LoginPartial")
             </nav>
         </aside>
         <main class="main-content">
-            <header class="topbar"><button class="mobile-menu-toggle" type="button" aria-label="Open navigation" aria-controls="primary-sidebar" aria-expanded="false">☰</button><span class="mobile-brand">Legacy Vault</span><span class="secure-label">● SECURE WORKSPACE</span></header>
+            <header class="topbar"><button class="mobile-menu-toggle" type="button" aria-label="Open navigation" aria-controls="primary-sidebar" aria-expanded="false">☰</button><span class="mobile-brand"><img src="~/images/legacy-vault-logo.png.png" alt="Legacy Vault System" /></span><span class="secure-label">● SECURE WORKSPACE</span></header>
         <div class="content-wrap">
             @RenderBody()
         </div></main></div>

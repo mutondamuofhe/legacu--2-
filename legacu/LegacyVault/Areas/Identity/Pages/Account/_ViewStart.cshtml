@@ -1,0 +1,6 @@
+@{
+    var page = ViewContext.RouteData.Values["page"]?.ToString();
+    Layout = page is "/Account/Login" or "/Account/Register"
+        ? "/Areas/Identity/Pages/Shared/_AuthLayout.cshtml"
+        : "/Views/Shared/_Layout.cshtml";
+}

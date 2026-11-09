@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LegacyVault.Models;
 
@@ -16,6 +17,8 @@ public class DigitalAsset : OwnedEntity
     [StringLength(80)] public string Category { get; set; } = string.Empty;
     [StringLength(160)] public string Provider { get; set; } = string.Empty;
     [StringLength(500)] public string AccountReference { get; set; } = string.Empty;
+    [NotMapped, StringLength(2000)] public string? Credentials { get; set; }
+    [StringLength(3000)] public string? EncryptedCredentials { get; set; }
     [StringLength(2000)] public string PreferredAction { get; set; } = string.Empty;
 }
 

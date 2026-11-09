@@ -1,0 +1,43 @@
+@page
+@model LegacyVault.Areas.Identity.Pages.Account.Manage.IndexModel
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Profile";
+}
+
+<div class="profile-page">
+    <div class="page-heading">
+        <div>
+            <span class="eyebrow">ACCOUNT SETTINGS</span>
+            <h1>Your profile</h1>
+            <p>Review your account information and security settings.</p>
+        </div>
+        <a class="button button-primary" asp-controller="Dashboard" asp-action="Index">Back to dashboard</a>
+    </div>
+
+    <div class="profile-grid">
+        <section class="panel profile-summary" aria-labelledby="profile-summary-title">
+            <div class="profile-avatar" aria-hidden="true">@Model.Initials</div>
+            <span class="eyebrow">LEGACY VAULT MEMBER</span>
+            <h2 id="profile-summary-title">@Model.FullName</h2>
+            <p>@Model.Email</p>
+            <a class="button button-primary profile-security-button" asp-area="Identity" asp-page="/Account/Manage/ChangePassword">Change password</a>
+        </section>
+
+        <section class="panel profile-details" aria-labelledby="profile-details-title">
+            <div class="panel-title">
+                <div>
+                    <span class="eyebrow">PERSONAL INFORMATION</span>
+                    <h2 id="profile-details-title">Account details</h2>
+                </div>
+                <span class="profile-status">Active account</span>
+            </div>
+            <dl class="profile-detail-list">
+                <div><dt>Full name</dt><dd>@Model.FullName</dd></div>
+                <div><dt>Email address</dt><dd>@Model.Email</dd></div>
+                <div><dt>Phone number</dt><dd>@(string.IsNullOrWhiteSpace(Model.PhoneNumber) ? "Not added" : Model.PhoneNumber)</dd></div>
+                <div><dt>ID number</dt><dd>@(string.IsNullOrWhiteSpace(Model.IdNumber) ? "Not added" : Model.IdNumber)</dd></div>
+            </dl>
+        </section>
+    </div>
+</div>

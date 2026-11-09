@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Legacy Vault</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body class="auth-page">
+    <header class="landing-header auth-header">
+        <div class="landing-shell nav-wrap">
+            <a class="brand-mark-link" href="/" aria-label="Legacy Vault home">
+                <img src="~/images/legacy-vault-logo.png.png" alt="Legacy Vault System" class="brand-logo" />
+            </a>
+            <nav class="top-nav" aria-label="Main navigation">
+                <a href="/">Home</a>
+                <a href="/Home/About">About Us</a>
+                <a href="/Home/Contact">Contact</a>
+            </nav>
+            <div class="nav-actions">
+                <a class="nav-login" href="/Identity/Account/Login">Login</a>
+                <a class="nav-register" href="/Identity/Account/Register">Register</a>
+            </div>
+        </div>
+    </header>
+    <main class="auth-main">
+        @RenderBody()
+    </main>
+    <script src="/lib/jquery/dist/jquery.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
